@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parámetros Psicrométicos del aire húmedo</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <!-- barra -->
+    <nav>
+        <div class="nav-wrapper blue darken-3">
+            <a href="#" class="brand-logo center">Parámetros Psicrométricos</a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="#">Universidad Autónoma Chapingo</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Espericueta Fonseca Fernando Simón</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav>
+        <div class="nav-wrapper blue darken-3">
+            <ul class="left hide-on-med-and-down">
+                <li><a href="#">Departamento de Ingeniería Mecánica Agrícola</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Ingeniería Mecatrónica Agrícola</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+    <div class="container">
+        <label>Seleccione el primer parámetro</label>
+        <div class="row">
+            <div class="col s12">
+                <select class="browser-default col s5">
+                    <optgroup
+                        label="Propiedades termodinámicas que caracterizan la cantidad de vapor de agua presente en el aire húmedo:">
+                        <option value="1">Presión de vapor (Pv)</option>
+                        <option value="2">Razón de humedad (W)</option>
+                        <option value="3">Humedad relativa (φ)</option>
+                        <option value="4">Grado de saturación (µ)</option>
+                    </optgroup>
+                    <optgroup label="Propiedades asociadas con la temperatura:">
+                        <option value="5">Temperatura de bulbo seco (Tbs)</option>
+                        <option value="6">Temperatura termodinámica de bulbo húmedo (Tbh)</option>
+                        <option value="7">Temperatura del punto de rocío (Tpr)</option>
+                    </optgroup>
+                    <optgroup label="Propiedades asociadas con la temperatura:">
+                        <option value="8">Volumen específico (Veh)</option>
+                        <option value="9">Entalpía (h)</option>
+                    </optgroup>
+                </select>
+                <div class="col s1"></div>
+                <p class="col s2"><b><i>P<sub>v</sub> = <output id="Presion_vapor"></output> kPa</i></b></p>
+                <p class="col s2"><b><i>W = <output id="Razon_humedad"></output> </i></b></p>
+                <p class="col s2"><b><i>φ = <output id="Humedad_relativa"></output> </i></b></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input placeholder="Valor" id="first_value" step="any" type="number" class="validate" value="1.169">
+            </div>
+            <div class="col s1"></div>
+            <p class="col s2"><b><i>µ = <output id="Grado_saturacion"></output> </i></b></p>
+            <p class="col s2"><b><i>T<sub>bs</sub> = <output id="Temp_b_s"></output> °C</i></b></p>
+            <p class="col s2"><b><i>T<sub>bh</sub> = <output id="Temp_b_h"></output> °C</i></b></p>
+        </div>
+        <label>Seleccione el segundo parámetro</label>
+        <div class="row">
+            <div class="col s12">
+                <select class="browser-default col s5">
+                    <optgroup
+                        label="Propiedades termodinámicas que caracterizan la cantidad de vapor de agua presente en el aire húmedo:">
+                        <option value="1" id="Pv">Presión de vapor (Pv)</option>
+                        <option value="2">Razón de humedad (W)</option>
+                        <option value="3">Humedad relativa (φ)</option>
+                        <option value="4">Grado de saturación (µ)</option>
+                    </optgroup>
+                    <optgroup label="Propiedades asociadas con la temperatura:">
+                        <option value="5">Temperatura de bulbo seco (Tbs)</option>
+                        <option value="6">Temperatura termodinámica de bulbo húmedo (Tbh)</option>
+                        <option value="7">Temperatura del punto de rocío (Tpr)</option>
+                    </optgroup>
+                    <optgroup label="Propiedades asociadas con la temperatura:">
+                        <option value="8">Volumen específico (Veh)</option>
+                        <option value="9">Entalpía (h)</option>
+                    </optgroup>
+                </select>
+                <div class="col s1"></div>
+                <p class="col s2"><b><i>T<sub>pr</sub> = <output id="Temp_p_r"></output> °C</i></b></p>
+                <p class="col s2"><b><i>V<sub>eh</sub> = <output id="Vol_esp"></output> m<sub>3</sub>/kg</i></b></p>
+                <p class="col s2"><b><i>h = <output id="Entalpia"></output> kJ/kg</i></b></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input placeholder="Valor" id="second_value" step="any" type="number" class="validate" value="0.0825">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <label>Presión atmosférica (kPa)</label>
+                <input placeholder="Valor" id="third_value" step="any" type="number" class="validate" value="101.325">
+            </div>
+            <div class="col s2"></div>
+            <button id="boton" class="waves-effect waves-light btn col s4">Calcular</button>
+        </div>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
