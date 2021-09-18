@@ -136,9 +136,113 @@ document.addEventListener('DOMContentLoaded', function () {
             calcular_Veh();
             calcular_entalpia();
         }
+        // W y Pv
+        else if (Select1.value == 2 && Select2.value == 1) {
+            presion_vapor.value = second_value.value;
+            razon_humedad.value = first_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value / (Pvs)).toFixed(5);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Tpr();
+            calcular_Veh();
+            calcular_entalpia();
+        }
+        // W y Humedad relativa
+        else if (Select1.value == 2 && Select2.value == 3) {
+            razon_humedad.value = first_value.value;
+            humedad_relativa.value = second_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            calcular_Pvs();
+            presion_vapor.value = (Pvs * humedad_relativa.value).toFixed(3);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Tpr();
+            calcular_Veh();
+            calcular_entalpia();
+        }
+        // W y grado de saturación 
+        else if (Select1.value == 2 && Select2.value == 4) {
+            razon_humedad.value = first_value.value;
+            grado_saturacion.value = second_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            presion_vapor.value = (parseFloat(razon_humedad.value) * third_value.value / (parseFloat(razon_humedad.value)+0.622)).toFixed(3);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value/Pvs).toFixed(2);
+            calcular_Tpr();
+            calcular_Veh();
+            calcular_entalpia();
+        }
+        // W y Tbs
+        else if (Select1.value == 2 && Select2.value == 5){
+            razon_humedad.value = first_value.value;
+            temp_b_s.value = second_value.value;
+            presion_vapor.value = (parseFloat(razon_humedad.value) * third_value.value / (parseFloat(razon_humedad.value)+0.622)).toFixed(3);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value/Pvs).toFixed(2);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Tpr();
+            calcular_Veh();
+            calcular_entalpia();
+        }
+        // W y Tbh
+        else if (Select1.value == 2 && Select2.value == 6){
+            razon_humedad.value = first_value.value;
+            temp_b_h.value = second_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            presion_vapor.value = (parseFloat(razon_humedad.value) * third_value.value / (parseFloat(razon_humedad.value)+0.622)).toFixed(3);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value/Pvs).toFixed(2);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Tpr();
+            calcular_Veh();
+            calcular_entalpia();
+        }
+        // W y Tpr
+        else if (Select1.value == 2 && Select2.value == 7){
+            razon_humedad.value = first_value.value;
+            temp_p_r.value = second_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            presion_vapor.value = (parseFloat(razon_humedad.value) * third_value.value / (parseFloat(razon_humedad.value)+0.622)).toFixed(3);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value/Pvs).toFixed(2);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Veh();
+            calcular_entalpia();
+        }
+        // W y Veh
+        else if (Select1.value == 2 && Select2.value == 8){
+            razon_humedad.value = first_value.value;
+            vol_esp.value = second_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            presion_vapor.value = (parseFloat(razon_humedad.value) * third_value.value / (parseFloat(razon_humedad.value)+0.622)).toFixed(3);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value/Pvs).toFixed(2);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Tpr();
+            calcular_entalpia();
+        }
+        // W y Tbh
+        else if (Select1.value == 2 && Select2.value == 9){
+            razon_humedad.value = first_value.value;
+            entalpia.value = second_value.value;
+            temp_b_s.value = (15.00 - 0.0065 * altura).toFixed(2);
+            presion_vapor.value = (parseFloat(razon_humedad.value) * third_value.value / (parseFloat(razon_humedad.value)+0.622)).toFixed(3);
+            calcular_Pvs();
+            humedad_relativa.value = (presion_vapor.value/Pvs).toFixed(2);
+            Ws = 0.622 * (Pvs / (third_value.value - Pvs));
+            grado_saturacion.value = (razon_humedad.value / Ws).toFixed(3);
+            calcular_Tpr();
+            calcular_Veh();
+        }
 
         function calcular_Pvs() {
-            var TK = parseFloat(temp_b_s.value) + 273.15;
+            var TK = parseFloat(temp_b_s.value) + 273.15+5;
             if (parseFloat(temp_b_s.value) > -100 && parseFloat(temp_b_s.value) < 0) {
                 var A1 = -5.6745359e3;
                 var A2 = 6.3925247;
