@@ -38,87 +38,91 @@
         </div>
     </nav>
 
-    <br>
+    <br><br><br>
     <div class="container">
-        <label>Seleccione el primer parámetro</label>
         <div class="row">
-            <div class="col s12">
-                <select class="browser-default col s5">
-                    <optgroup
-                        label="Propiedades termodinámicas que caracterizan la cantidad de vapor de agua presente en el aire húmedo:">
-                        <option value="1">Presión de vapor (Pv)</option>
-                        <option value="2">Razón de humedad (W)</option>
-                        <option value="3">Humedad relativa (φ)</option>
-                        <option value="4">Grado de saturación (µ)</option>
-                    </optgroup>
-                    <optgroup label="Propiedades asociadas con la temperatura:">
-                        <option value="5">Temperatura de bulbo seco (Tbs)</option>
-                        <option value="6">Temperatura termodinámica de bulbo húmedo (Tbh)</option>
-                        <option value="7">Temperatura del punto de rocío (Tpr)</option>
-                    </optgroup>
-                    <optgroup label="Propiedades asociadas con la temperatura:">
-                        <option value="8">Volumen específico (Veh)</option>
-                        <option value="9">Entalpía (h)</option>
-                    </optgroup>
-                </select>
-                <div class="col s1"></div>
-                <p class="col s2"><b><i>P<sub>v</sub> = <output id="Presion_vapor"></output> kPa</i></b></p>
-                <p class="col s2"><b><i>W = <output id="Razon_humedad"></output> </i></b></p>
-                <p class="col s2"><b><i>φ = <output id="Humedad_relativa"></output> </i></b></p>
+            <div class="input-field col s3">
+                <label>Temperatura de bulbo seco (°C)</label>
+                <input placeholder="Valor" id="first_value" step="any" type="number" class="validate" value="20">
             </div>
+            <div class="col s3"></div>
+            <p class="col s2"><b><i>P<sub>v</sub> = <output id="Presion_vapor"></output> kPa</i></b></p>
+            <p class="col s2"><b><i>W = <output id="Razon_humedad"></output> </i></b></p>
+            <p class="col s2"><b><i>φ = <output id="Humedad_relativa"></output> </i></b></p>
         </div>
+
         <div class="row">
-            <div class="input-field col s5">
-                <input placeholder="Valor" id="first_value" step="any" type="number" class="validate" value="">
+            <div class="input-field col s3">
+                <label>Humedad relativa (%)</label>
+                <input placeholder="Valor" id="second_value" step="any" type="number" class="validate" value="50">
             </div>
-            <div class="col s1"></div>
+            <div class="col s3"></div>
             <p class="col s2"><b><i>µ = <output id="Grado_saturacion"></output> </i></b></p>
             <p class="col s2"><b><i>T<sub>bs</sub> = <output id="Temp_b_s"></output> °C</i></b></p>
             <p class="col s2"><b><i>T<sub>bh</sub> = <output id="Temp_b_h"></output> °C</i></b></p>
         </div>
-        <label>Seleccione el segundo parámetro</label>
+
         <div class="row">
-            <div class="col s12">
-                <select class="browser-default col s5">
-                    <optgroup
-                        label="Propiedades termodinámicas que caracterizan la cantidad de vapor de agua presente en el aire húmedo:">
-                        <option value="1" id="Pv">Presión de vapor (Pv)</option>
-                        <option value="2">Razón de humedad (W)</option>
-                        <option value="3">Humedad relativa (φ)</option>
-                        <option value="4">Grado de saturación (µ)</option>
-                    </optgroup>
-                    <optgroup label="Propiedades asociadas con la temperatura:">
-                        <option value="5">Temperatura de bulbo seco (Tbs)</option>
-                        <option value="6">Temperatura termodinámica de bulbo húmedo (Tbh)</option>
-                        <option value="7">Temperatura del punto de rocío (Tpr)</option>
-                    </optgroup>
-                    <optgroup label="Propiedades asociadas con la temperatura:">
-                        <option value="8">Volumen específico (Veh)</option>
-                        <option value="9">Entalpía (h)</option>
-                    </optgroup>
-                </select>
-                <div class="col s1"></div>
-                <p class="col s2"><b><i>T<sub>pr</sub> = <output id="Temp_p_r"></output> °C</i></b></p>
-                <p class="col s2"><b><i>V<sub>eh</sub> = <output id="Vol_esp"></output> m<sub>3</sub>/kg</i></b></p>
-                <p class="col s2"><b><i>h = <output id="Entalpia"></output> kJ/kg</i></b></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s5">
-                <input placeholder="Valor" id="second_value" step="any" type="number" class="validate" value="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s5">
+            <div class="input-field col s3">
                 <label>Presión atmosférica (kPa)</label>
                 <input placeholder="Valor" id="third_value" step="any" type="number" class="validate" value="101.325">
             </div>
-            <div class="col s2"></div>
+            <div class="col s3"></div>
+            <p class="col s2"><b><i>T<sub>pr</sub> = <output id="Temp_p_r"></output> °C</i></b></p>
+            <p class="col s2"><b><i>V<sub>eh</sub> = <output id="Vol_esp"></output> m<sub>3</sub>/kg</i></b></p>
+            <p class="col s2"><b><i>h = <output id="Entalpia"></output> kJ/kg</i></b></p>
+        </div>
+        <div class="row">
+            <div class="col s4"></div>
             <button id="boton" class="waves-effect waves-light btn col s4">Calcular</button>
+        </div>
+        <div class="row">
+            <div class="col s4"></div>
+            <h4>Carta Psicrométrica</h4>
+        </div>
+        <canvas id="myChart" width="700" height="400"></canvas>
+        <br><br><br><br>
+        <div class="row">
+            <div class="col s4">
+                <input type="file" id="file-input" />
+                <h5>Contenido del archivo:</h5>
+                <pre id="contenido-archivo"></pre>
+                <table class="default">
+
+                    <tr>
+                        <th id="temp"></th>
+                        <th id="HR"></th>
+                    </tr>
+                    <tr>
+                        <td id="R1C1"></td>
+                        <td id="R1C2"></td>
+                    </tr>
+                    <tr>
+                        <td id="R2C1"></td>
+                        <td id="R2C2"></td>
+                    </tr>
+                    <tr>
+                        <td id="R3C1"></td>
+                        <td id="R3C2"></td>
+                    </tr>
+                    <tr>
+                        <td id="R4C1"></td>
+                        <td id="R4C2"></td>
+                    </tr>
+                    <tr>
+                        <td id="R5C1"></td>
+                        <td id="R5C2"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+        integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="app.js"></script>
 </body>
