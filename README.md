@@ -3,7 +3,7 @@
 
 ![Design preview for the Web Page](preview.png)
 
-This was a final project used for used to plot the psychrometric parameters of dry air given 
+This was a final project used to plot the psychrometric parameters of dry air given 
 temperature, relative humidity, and atmospheric pressure. 
 
 ## Requirements
